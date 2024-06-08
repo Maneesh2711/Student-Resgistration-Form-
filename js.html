@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <link rel="stylesheet" href="js.css">
+</head>
+<body>
+    <h1>STUDENT FORM</h1>
+    <div>
+        <h4>Name<input id="one" type="text"></h4>
+        <h4>Age <input id="two" type="number" min="16"></h4>
+        <h4>Gender<input id="three" type="radio" name="unit">Male
+        <input id="four" type="radio" name="unit">Female</input></h4>
+        <h4>Department  <input id="five"type="text"></h4>
+        <h4>E-mail  <input id="six" type="text"></h4>
+        <button onclick="submitform()">Submit</button>
+    </div>
+   <ol id="txtcontent">
+    <li>
+        <table id="stable" border="1">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>E-mail</th>
+                <th> Action  </th>
+            </tr>
+        </table>
+    </li>
+   </ol>
+   <script>
+    var a=document.getElementById("one");
+    var b=document.getElementById("two")
+    var c=document.getElementById("five");
+    var d=document.getElementById("six");
+    var table=document.getElementById("stable");
+    var e;
+    function submitform(){
+        if(three.checked){
+            e="Male";
+        }
+        else if(four.checked){
+            e="Female";
+        }
+        else{
+            alert("please a select a gender");
+            return;
+        }
+        var newrow=table.insertRow();
+        var cell1=newrow.insertCell(0);
+        var cell2=newrow.insertCell(1);
+        var cell3=newrow.insertCell(2);
+        var cell4=newrow.insertCell(3);
+        var cell5=newrow.insertCell(4);
+        var cell6=newrow.insertCell(5);
+
+        cell1.innerHTML=a.value;
+        cell2.innerHTML=b.value;
+        cell3.innerHTML=e;
+        cell4.innerHTML=c.value;
+        cell5.innerHTML=d.value;
+        cell6.innerHTML="<button onclick='del(event)'>Delete</button>"
+        ol.append(newrow);
+
+    }
+    function del(event){
+        event.target.parentElement.parentElement.remove();
+    }
+   </script>
+</body>
+</html>
